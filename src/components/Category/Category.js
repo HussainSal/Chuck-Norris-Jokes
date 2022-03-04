@@ -31,7 +31,7 @@ const useStyle = makeStyles((theme) => {
   };
 });
 
-const CreateTask = () => {
+const Category = () => {
   const style = useStyle();
   const ctx = useAppContext();
   const [category, setCategory] = useState([]);
@@ -120,4 +120,4 @@ const CreateTask = () => {
   );
 };
 
-export default CreateTask;
+export default Category;

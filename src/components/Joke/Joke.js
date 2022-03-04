@@ -3,7 +3,7 @@ import classes from "./Joke.module.css";
 import { useAppContext } from "../../store/contextApi";
 import { Card, Typography } from "@material-ui/core";
 
-const UserList = () => {
+const Joke = () => {
   const ctx = useAppContext();
 
   const emoji = [
@@ -59,9 +59,10 @@ const UserList = () => {
     <div className={classes.container}>
       <Card className={classes.jokeCard}>
         <div className={classes.emojiBox}>
-          {emoji.map((cur) => {
+          {emoji.map((cur, i) => {
             return (
               <img
+                key={i}
                 className={`${classes.emoji}  ${
                   ctx.smileyid === cur.id && classes.activeEmoji
                 } `}
@@ -83,4 +84,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default Joke;
