@@ -1,0 +1,54 @@
+.container {
+  height: 700px;
+  max-width: 700px;
+}
+
+.jokeCard {
+  height: 100%;
+  width: 100%;
+}
+
+.jokeText {
+  padding: 50px;
+  max-width: 500px;
+  color: #789097;
+}
+
+.emojiBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 350px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.emoji {
+  cursor: pointer;
+  width: 50px;
+}
+
+.activeEmoji {
+  transform: scale(1.4);
+  transition: all 0.4s;
+}
+
+@media (max-width: 750px) {
+  .container {
+    height: 420px !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .emoji {
+    width: 30px;
+  }
+  .emojiBox {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .jokeText {
+    padding: 20px;
+  }
+}

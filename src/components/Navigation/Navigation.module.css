@@ -1,0 +1,12 @@
+.navContainer {
+  margin: auto;
+  max-width: 1600px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.nav {
+  background-color: aqua;
+}
