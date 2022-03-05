@@ -25,27 +25,36 @@ const Joke = () => {
     },
   ];
 
-  /* GETTING jokes */
+  /* GETTING JOKES */
   useEffect(() => {
     const gettingJoke = async () => {
       const response = await fetch(`https://api.chucknorris.io/jokes/random`);
 
-      const data = await response.json();
-      ctx.setJoke(data.value);
+      try {
+        const data = await response.json();
+        ctx.setJoke(data.value);
+      } catch (e) {
+        console.log(e);
+      }
     };
     gettingJoke();
   }, []);
 
   useEffect(() => {
-    /* GETTING JOKES ACCODING TO CATEGORY */
+    /* GETTING JOKES ACCORDING TO CATEGORY */
     const gettingJokes = async () => {
-      const response = await fetch(
-        `https://api.chucknorris.io/jokes/random?category=${ctx.selectedCategory}`
-      );
+      const link =
+        ctx.selectedCategory === "Random"
+          ? "https://api.chucknorris.io/jokes/random"
+          : `https://api.chucknorris.io/jokes/random?category=${ctx.selectedCategory}`;
 
-      const data = await response.json();
-
-      ctx.setJoke(data.value);
+      try {
+        const response = await fetch(link);
+        const data = await response.json();
+        ctx.setJoke(data.value);
+      } catch (e) {
+        console.log(e);
+      }
     };
     gettingJokes();
     ctx.setSmileyid("");

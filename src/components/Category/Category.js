@@ -56,17 +56,20 @@ const Category = () => {
         ? "https://api.chucknorris.io/jokes/random"
         : `https://api.chucknorris.io/jokes/random?category=${ctx.selectedCategory}`;
 
-    const response = await fetch(link);
+    try {
+      const response = await fetch(link);
 
-    const data = await response.json();
-
-    ctx.setJoke(data.value);
+      const data = await response.json();
+      ctx.setJoke(data.value);
+    } catch (e) {
+      console.log(e);
+    }
     ctx.setSmileyid("");
   };
 
   return (
     <div className={classes.container}>
-      <Card elevation="disable" className={style.categoryCard}>
+      <Card className={style.categoryCard}>
         <div className={classes.chuckNorrisJokes}>
           <Typography
             style={{ marginBottom: "20px" }}
